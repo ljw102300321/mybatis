@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.library.mapper.BookMapper">
+
+
+    <!-- sql片段，如果要增加或减少选择条件，就在下面增加或减少-->
+    <sql id="book_column">
+        book_id as bookId,book_name as bookName,author ,publisher,publish_date as publishDate,type, status
+
+    </sql>
+
+
+    <select id="selectAll" resultType="Book">
+        select <include refid="book_column"/> from book;
+    </select>
+
+
+        <!-- 定义动态字段列表（支持别名） -->
+        <sql id="book_columns">
+            <choose>
+                <!-- 如果传入了 selectValues 参数且非空 -->
+                <when test="selectValues != null and selectValues.length > 0">
+                    <foreach collection="selectValues" item="field" separator=",">
+                        <choose>
+                            <!-- 字段别名映射 -->
+                            <when test="field == 'bookId'">book_id as bookId</when>
+                            <when test="field == 'bookName'">book_name as bookName</when>
+                            <when test="field == 'publishDate'">publish_date as publishDate</when>
+                            <!-- 直接映射无别名的字段 -->
+                            <when test="field == 'author' or field == 'publisher' or field == 'type' or field == 'status'">
+                                ${field}
+                            </when>
+                        </choose>
+                    </foreach>
+                </when>
+                <!-- 默认查询所有字段 -->
+                <otherwise>
+                    book_id as bookId,
+                    book_name as bookName,
+                    author,
+                    publisher,
+                    publish_date as publishDate,
+                    type,
+                    status
+                </otherwise>
+            </choose>
+        </sql>
+
+
+
+        <!-- 动态查询方法 -->
+        <select id="selectBy" resultType="Book">
+            SELECT
+            <include refid="book_columns"/>
+            FROM book
+            ORDER BY ${orderBy} ${selectType}
+        </select>
+
+
+
+
+
+    <select id="selectById" resultType="Book">
+
+    </select>
+
+    <insert id="insertBook">
+        insert into book(book_name,author,publisher,publish_date,type,status) values(#{bookName},#{author},#{publisher},#{publishDate},#{type},#{status});
+</insert>
+
+<update id="updateStatus">
+        update book set status = #{status} where book_id = #{bookId};
+</update>
+
+    <delete id="deleteBook">
+        delete from book where book_id = #{bookId};
+    </delete>
+
+</mapper>
