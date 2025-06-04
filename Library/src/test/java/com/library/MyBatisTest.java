@@ -2,7 +2,7 @@ package com.library;
 
 import com.library.mapper.BookMapper;
 import com.library.pojo.Book;
-import com.library.pojo.GetSqlSession;
+import com.library.utils.GetSqlSession;
 import org.apache.ibatis.session.SqlSession;
 import org.junit.Test;
 

@@ -26,7 +26,11 @@ create table system_administrator (
     sysadmin_password varchar(20)
 );
 
+
 insert into system_administrator (sysadmin_name, sysadmin_password) values('除骑','102300318');
+
+
+
 create table user (
     user_id int auto_increment primary key,
     username varchar(20),

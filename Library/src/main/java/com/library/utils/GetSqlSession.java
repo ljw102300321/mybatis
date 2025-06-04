@@ -1,4 +1,4 @@
-package com.library.pojo;
+package com.library.utils;
 
 import org.apache.ibatis.io.Resources;
 import org.apache.ibatis.session.SqlSession;

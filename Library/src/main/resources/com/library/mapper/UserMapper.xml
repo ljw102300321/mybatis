@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.library.mapper.UserMapper">
+
+    <resultMap id="UserMap" type="user">
+        <id property="userId" column="user_id"/>
+        <result property="userName" column="username"/>
+        <result property="userPassword" column="user_password"/>
+        <collection property="borrowRecordList" ofType="BorrowRecord">
+            <id property="borrowId" column="borrow_id"/>
+            <result property="userId" column="user_id"/>
+            <result property="bookId" column="book_id"/>
+            <result property="administratorId" column="administrator_id"/>
+            <result property="borrowDate" column="borrow_date"/>
+            <result property="shouldReturnDate" column="should_return_date"/>
+            <result property="returnDate" column="return_date"/>
+        </collection>
+    </resultMap>
+
+    <select id="selectImplById" resultMap="UserMap">
+        select u.*,
+        b.borrow_id,b.book_id,b.administrator_id,b.borrow_date,b.should_return_date,b.return_date
+        from user u left join borrow b on u.user_id = b.user_id
+        where u.user_id = #{userId};
+    </select>
+
+
+
+
+</mapper>
