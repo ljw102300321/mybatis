@@ -22,21 +22,21 @@ public class MyBatisTest {
         //1.加载mybatis的核心配置文件，获取SqlSessionFactory对象
         String resource = "mybatis-config.xml";
         SqlSession sqlSession = GetSqlSession.getSqlSession(resource);
-        //BookMapper bookMapper = sqlSession.getMapper(BookMapper.class);
-        //List<Book> list=BookMapper.selectAll();
+        BookMapper bookMapper = sqlSession.getMapper(BookMapper.class);
+        List<Book> list=bookMapper.selectAll();
         //System.out.println(list);
         //Book book=bookMapper.selectById(1);
         //System.out.println(book);
         //bookMapper.insertBook(new Book(21,"清华集注","张三","清华大学出版社","2020-01-01","计算机","notBorrowed"));
         //bookMapper.updateStatus("isBorrowed",21);
-    /*    List<Book> list=bookMapper.selectBy("publish_date","desc","bookName","author","publishDate","publisher");
+    //    List<Book> list=bookMapper.selectBy("publish_date","desc","bookName","author","publishDate","publisher");
         for (Book book:list)
             System.out.println(book);
 
-     */
+
         //bookMapper.deleteBook(21);
-        bookAdministratorMapper bookAdministratorMapper = sqlSession.getMapper(bookAdministratorMapper.class);
-        bookAdministrator bookAdministrator = bookAdministratorMapper.selectExit(1,"ljw","102300321");
+        //bookAdministratorMapper bookAdministratorMapper = sqlSession.getMapper(bookAdministratorMapper.class);
+        //bookAdministrator bookAdministrator = bookAdministratorMapper.selectExit(1,"ljw","102300321");
         sqlSession.commit();
         sqlSession.close();
 
