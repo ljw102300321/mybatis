@@ -10,6 +10,9 @@
     </insert>
 
 
+    <delete id="delete">
+        delete from borrow where borrow_id = #{borrowId}
+    </delete>
 
 
 </mapper>

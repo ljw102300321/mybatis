@@ -7,6 +7,7 @@ public interface BorrowRecordMapper {
     int insert(BorrowRecord borrowRecord);
 
 
+    int delete(int borrowId);
 
 
 }

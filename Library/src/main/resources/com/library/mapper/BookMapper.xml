@@ -61,7 +61,6 @@
 
 
 
-
     <select id="selectById" resultType="Book">
         select <include refid="book_column"/> from book where book_id = #{bookId};
     </select>
