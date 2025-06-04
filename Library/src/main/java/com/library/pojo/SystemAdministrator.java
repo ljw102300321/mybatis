@@ -1,14 +1,14 @@
 package com.library.pojo;
 
-public class systemAdministrator {
+public class SystemAdministrator {
     private int sysadminId;
     private String sysadminName;
     private String sysadminPassword;
 
-    public systemAdministrator() {
+    public SystemAdministrator() {
     }
 
-    public systemAdministrator(int sysadminId, String sysadminName, String sysadminPassword) {
+    public SystemAdministrator(int sysadminId, String sysadminName, String sysadminPassword) {
         this.sysadminId = sysadminId;
         this.sysadminName = sysadminName;
         this.sysadminPassword = sysadminPassword;

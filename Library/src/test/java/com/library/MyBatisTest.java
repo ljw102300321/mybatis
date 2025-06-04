@@ -1,18 +1,12 @@
 package com.library;
 
 import com.library.mapper.BookMapper;
-import com.library.mapper.bookAdministratorMapper;
 import com.library.pojo.Book;
 import com.library.pojo.GetSqlSession;
-import com.library.pojo.bookAdministrator;
-import org.apache.ibatis.io.Resources;
 import org.apache.ibatis.session.SqlSession;
-import org.apache.ibatis.session.SqlSessionFactory;
-import org.apache.ibatis.session.SqlSessionFactoryBuilder;
 import org.junit.Test;
 
 import java.io.IOException;
-import java.io.InputStream;
 import java.util.List;
 
 public class MyBatisTest {

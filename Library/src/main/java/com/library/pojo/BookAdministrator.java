@@ -1,15 +1,15 @@
 package com.library.pojo;
 
-public class bookAdministrator {
+public class BookAdministrator {
 
     private int adminId;
     private String adminName;
     private String adminPassword;
 
-    public bookAdministrator() {
+    public BookAdministrator() {
     }
 
-    public bookAdministrator(int adminId, String adminName, String adminPassword) {
+    public BookAdministrator(int adminId, String adminName, String adminPassword) {
         this.adminId = adminId;
         this.adminName = adminName;
         this.adminPassword = adminPassword;
