@@ -17,4 +17,5 @@ public interface BookMapper {
     public int insertBook(Book book);
     public int updateStatus(@Param("status") String status, @Param("bookId") int bookId);
     public  int deleteBook(int bookId);
+
 }

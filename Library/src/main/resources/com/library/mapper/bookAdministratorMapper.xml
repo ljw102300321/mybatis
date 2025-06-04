@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.library.mapper.bookAdministratorMapper">
+
+    <sql id="bookAdministrator_column">
+    admin_id as adminId,
+    admin_name as adminName,
+    admin_password as adminPassword
+    </sql>
+
+
+    <select id="selectExit" resultType="bookAdministrator">
+        select <include refid="bookAdministrator_column"/> from from book_administrator
+                where admin_id=#{adminId},admin_name =#{adminName},admin_password=#{adminPassword};
+    </select>
+
+
+
+</mapper>

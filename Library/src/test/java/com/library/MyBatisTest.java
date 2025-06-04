@@ -1,8 +1,10 @@
 package com.library;
 
 import com.library.mapper.BookMapper;
+import com.library.mapper.bookAdministratorMapper;
 import com.library.pojo.Book;
 import com.library.pojo.GetSqlSession;
+import com.library.pojo.bookAdministrator;
 import org.apache.ibatis.io.Resources;
 import org.apache.ibatis.session.SqlSession;
 import org.apache.ibatis.session.SqlSessionFactory;
@@ -20,7 +22,7 @@ public class MyBatisTest {
         //1.加载mybatis的核心配置文件，获取SqlSessionFactory对象
         String resource = "mybatis-config.xml";
         SqlSession sqlSession = GetSqlSession.getSqlSession(resource);
-        BookMapper bookMapper = sqlSession.getMapper(BookMapper.class);
+        //BookMapper bookMapper = sqlSession.getMapper(BookMapper.class);
         //List<Book> list=BookMapper.selectAll();
         //System.out.println(list);
         //Book book=bookMapper.selectById(1);
@@ -32,7 +34,9 @@ public class MyBatisTest {
             System.out.println(book);
 
      */
-        bookMapper.deleteBook(21);
+        //bookMapper.deleteBook(21);
+        bookAdministratorMapper bookAdministratorMapper = sqlSession.getMapper(bookAdministratorMapper.class);
+        bookAdministrator bookAdministrator = bookAdministratorMapper.selectExit(1,"ljw","102300321");
         sqlSession.commit();
         sqlSession.close();
 
