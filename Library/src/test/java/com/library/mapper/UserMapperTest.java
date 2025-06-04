@@ -19,5 +19,14 @@ public class UserMapperTest {
 
     }
 
+    @Test
+    public void selectByCheck() throws Exception{
+        String resource = "mybatis-config.xml";
+        SqlSession sqlSession = GetSqlSession.getSqlSession(resource);
+        UserMapper userMapper = sqlSession.getMapper(UserMapper.class);
+        User user = userMapper.selectByCheck("张三", "zhang123");
+        System.out.println(user);
+    }
+
 
 }

@@ -26,6 +26,21 @@
         where u.user_id = #{userId};
     </select>
 
+    <select id="selectByCheck" resultType="User">
+        select user_id from User
+        <where>
+            <if test="userName != null and userPassword != null">
+                username = #{userName}
+                and user_password = #{userPassword}
+            </if>
+        </where>
+    </select>
+
+
+
+
+
+
 
 
 
